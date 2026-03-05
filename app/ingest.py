@@ -11,24 +11,46 @@ def read_extract_pdf(file_path):
 
     for page in reader.pages:
         page_text = page.extract_text()
-        if page_text:         # sometimes empty
+
+        # sometimes pdf pgs may empty
+        if page_text:         
             text += page_text + "\n"
 
     return text
 
 
-def read_all_documents():
+def load_documents():
+    """
+    Loads all pdfs from the folder.
+    return a list of dictionaries with document name and text.
+    """
+
     docs_path = Path("data/documents")
+    documents = []
 
     for pdf_file in docs_path.glob("*.pdf"):
+
         print(f"\n--- Reading: {pdf_file.name} ---")
 
         text = read_extract_pdf(pdf_file)
 
-        # just preview
-        print(text[:1000])
+        document_data = {
+            "doc_name": pdf_file.name,
+            "text": text
+        }
 
+        documents.append(document_data)
+
+        # just preview
+        print(text[:500])
+
+
+    return documents
 
 if __name__ == "__main__":
-    print("Reading pdfs in data/documents ...\n")
-    read_all_documents()
+   
+    print("\nLoading pdfs from documents...\n")
+ 
+    docs = load_documents()
+
+    print("\nTotal documents loaded:", len(docs))
