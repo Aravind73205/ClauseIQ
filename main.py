@@ -1,5 +1,6 @@
 from app.ingest import load_documents
 from app.chunking import chunk_documents
+from app.embeddings import create_embeddings, build_vector_store
 
 
 def main():
@@ -10,11 +11,15 @@ def main():
     print("\nCreating chunks...\n")
     chunks = chunk_documents(documents)
 
-    print("\nTotal chunks created:", len(chunks))
+    print(f"\nTotal chunks: {len(chunks)}")
 
-    print("\nExample chunk:\n")
-    print(chunks[0]["chunk_text"][:500])
+    print("\nGenerating embeddings..\n")
+    embeddings = create_embeddings(chunks)
 
+    print("\nBuilding vector store...\n")
+    index = build_vector_store(embeddings)
+
+    print("\nVector store created successfully..!")
 
 if __name__ == "__main__":
     main()
