@@ -1,25 +1,36 @@
 from app.ingest import load_documents
 from app.chunking import chunk_documents
-from app.embeddings import create_embeddings, build_vector_store
+from app.embeddings import (
+    create_embeddings,
+    build_vector_store,
+    save_vector_store,
+    load_vector_store
+)
 
 
 def main():
 
-    print("\nLoading documents...\n")
-    documents = load_documents()
+    index, chunks = load_vector_store()
 
-    print("\nCreating chunks...\n")
-    chunks = chunk_documents(documents)
+    if index is None:
 
-    print(f"\nTotal chunks: {len(chunks)}")
+        print("\nLoading documents...\n")
+        documents = load_documents()
 
-    print("\nGenerating embeddings..\n")
-    embeddings = create_embeddings(chunks)
+        print("\nCreating chunks...\n")
+        chunks = chunk_documents(documents)
 
-    print("\nBuilding vector store...\n")
-    index = build_vector_store(embeddings)
+        print(f"\nTotal chunks: {len(chunks)}")
 
-    print("\nVector store created successfully..!")
+        embeddings = create_embeddings(chunks)
+
+        index = build_vector_store(embeddings)
+
+        save_vector_store(index, chunks)
+
+    else:
+        print("\nVector store already exists. Skipping embedding step.\n")
+
 
 if __name__ == "__main__":
     main()
