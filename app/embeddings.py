@@ -1,11 +1,8 @@
-from sentence_transformers import SentenceTransformer
+from app.model import model
 import numpy as np
 import faiss
 import pickle
 import os
-    
-
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
 def create_embeddings(chunks):
