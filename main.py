@@ -7,6 +7,7 @@ from app.embeddings import (
     load_vector_store
 )
 from app.retrieval import retrieve
+from app.llm import generate_answer
 
 
 def main():
@@ -40,12 +41,11 @@ def main():
 
         results = retrieve(query, index, chunks)
 
-        print("\nTop Results:\n")
+        answer = generate_answer(query, results)
 
-        for i, res in enumerate(results):
-            print(f"Result {i+1}:")
-            print(res["chunk_text"][:300])
-            print("-" * 50)
+        print("\nFinal Answer:\n")
+        print(answer)
+        print("=" * 60)
 
 
 if __name__ == "__main__":

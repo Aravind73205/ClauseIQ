@@ -1,25 +1,24 @@
+import re
+
 def text_to_chunks(text, chunk_size=500, overlap=100):
     """
-    Splits a large text string into overlapping chunks.
+    Split text into chunks without breaking sentences.
     """
 
+    sentences = re.split(r'(?<=[.!?]) +', text)
+
     chunks = []
-    start = 0
-    text_length = len(text)
+    current_chunk = ""
 
-    while start < text_length:
+    for sentence in sentences:
+        if len(current_chunk) + len(sentence) < chunk_size:
+            current_chunk += " " + sentence
+        else:
+            chunks.append(current_chunk.strip())
+            current_chunk = sentence
 
-        end = min(start + chunk_size, text_length)
-        chunk = text[start:end].strip()
-
-        if chunk:  # only add non empty chunks
-            chunks.append(chunk)
-
-        if end == text_length:
-            break
-
-        # move start forward with overlap
-        start = end - overlap
+    if current_chunk:
+        chunks.append(current_chunk.strip())
 
     return chunks
 
