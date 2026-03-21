@@ -22,11 +22,21 @@ def generate_answer(query, chunks):
     clean_chunks = []
 
     for chunk in chunks:
-        text = chunk["chunk_text"].replace("\n", " ").strip()
-        if len(text) > 50:  # remove tiny useless chunks
-            clean_chunks.append(text)
+        text = chunk["chunk_text"].replace("\n", " ").strip() 
 
-    context = "\n\n".join(clean_chunks[:7])  # limit to top 3 clean chunks
+        if len(text) > 50:  # remove tiny useless chunks
+            clean_chunks.append({
+                "doc_name": chunk["doc_name"],
+                "chunk_text": text
+            })
+
+    chunks = clean_chunks[:7] # limit to top 7 chunks
+
+    context = "\n\n".join([
+        f"[Source: {c['doc_name']}]\n{c['chunk_text']}"
+        for c in chunks
+    ])
+
 
     prompt = f"""
 You are a financial compliance assistant.
@@ -41,6 +51,8 @@ If the answer is NOT present in the context, say:
 "Not found in provided documents."
 
 DO NOT use external knowledge.
+
+After answering, include sources used.
 
 Context:
 {context}
