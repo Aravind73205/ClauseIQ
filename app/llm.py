@@ -30,8 +30,6 @@ def generate_answer(query, chunks):
                 "chunk_text": text
             })
 
-    chunks = clean_chunks[:7] # limit to top 7 chunks
-
     context = "\n\n".join([
         f"[Source: {c['doc_name']}]\n{c['chunk_text']}"
         for c in chunks
@@ -48,9 +46,11 @@ If the answer is clearly present in the context, answer confidently.
 If the context contains partial information, answer based on it but mention that the information is limited.
 
 If the answer is NOT present in the context, say:
-"Not found in provided documents."
+"Content Not found in provided documents."
 
-DO NOT use external knowledge.
+DO NOT use external knowledge for file based questions.
+
+Give a proper response for basic gestures like "Hi", "Hello", "How are you?" etc. without using the context.
 
 After answering, include sources used.
 

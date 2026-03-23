@@ -1,6 +1,6 @@
 import re
 
-def text_to_chunks(text, chunk_size=500, overlap=100):
+def text_to_chunks(text, chunk_size=500):
     """
     Split text into chunks without breaking sentences.
     """
