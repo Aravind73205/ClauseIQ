@@ -24,7 +24,7 @@ div[data-testid="stChatInput"] {
     bottom: 1.5rem !important;
     left: calc(50vw + 122px) !important;
     transform: translateX(-50%) !important;
-    width: calc((100vw - 244px) * 0.52) !important;
+    width: calc((100vw - 244px) * 0.495) !important;
     z-index: 999 !important;
 }
 .main .block-container {
@@ -95,8 +95,7 @@ if uploaded_file:
 _, center, _ = st.columns([1, 2, 1])
 
 with center:
-    st.markdown("# 📄 ClauseIQ")
-    st.markdown("### Chat with your documents using AI")
+    st.markdown("## 📜 ClauseIQ — Compliance Document Intelligence")
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Chat history
