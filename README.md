@@ -4,7 +4,7 @@ ClauseIQ is a RAG (Retrieval-Augmented Generation) system that lets you upload c
 
 ---
 
-## The Problem
+## ⚠️ The Problem
 
 Reading through financial regulations like RBI guidelines, FATF recommendations, or AML policies is slow and painful. Finding a specific clause means manually scanning hundreds of pages. ClauseIQ solves this by letting you just ask.
 
@@ -20,7 +20,7 @@ The system never uses external knowledge. Every answer traces back to your uploa
 
 ---
 
-## Features
+## 📊 Features
 
 - Upload and chat with PDF document
 - Custom RAG pipeline — no LangChain
@@ -31,7 +31,7 @@ The system never uses external knowledge. Every answer traces back to your uploa
 
 ---
 
-## Architecture
+## 🏛️ Architecture 
 
 ```
 PDF Upload
@@ -58,7 +58,7 @@ Gemini 2.5 Flash (RAG prompt with retrieved context)
 Answer → Streamlit UI
 ```
 
-Built without LangChain — every layer of the pipeline is custom implemented for full control over chunking strategy, retrieval thresholds, and prompt design.
+- Built without LangChain — every layer of the pipeline is custom implemented for full control over chunking strategy, retrieval thresholds, and prompt design.
 
 ---
 
@@ -75,34 +75,41 @@ Built without LangChain — every layer of the pipeline is custom implemented fo
 
 ---
 
-## Run Locally
+## ✔ To Run 
 
-```bash
-git clone <your-repo-link>
-cd ClauseIQ
+**1. Clone the repository**
 
-python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # Mac/Linux
+   ```bash
+   git clone <your-repo-link>
+   cd ClauseIQ
 
-pip install -r requirements.txt
-```
+   python -m venv venv
+   venv\Scripts\activate        # Windows
+   # source venv/bin/activate   # Mac/Linux
+   ```
 
-Add your Gemini API key to a `.env` file:
+**2. Install dependencies**
 
-```
-GEMINI_API_KEY=your_key_here
-```
+   ```
+   pip install -r requirements.txt
+   ```
 
-Then run:
+**3. Set up environment variables**
 
-```bash
-streamlit run app/ui.py
-```
+- Add your Gemini API key to a `.env` file:
+
+   ```
+   GEMINI_API_KEY=your_key_here
+   ```
+**4. Run the model**
+
+   ```bash
+   streamlit run app/ui.py
+   ```
 
 ---
 
-## Demo
+## 📸 Preview
 
 ![ClauseIQ Demo](assets/demo.png)
 
@@ -125,7 +132,7 @@ streamlit run app/ui.py
 
 ---
 
-## Future Upgrades
+## ♾️ Future Upgrades
 
 - Multi document querying
 - Hybrid search (keyword + semantic)
