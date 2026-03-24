@@ -23,5 +23,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Vector DB (we will create later)
+# Vector DB (will create later)
 vector_store/

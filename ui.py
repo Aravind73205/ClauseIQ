@@ -11,7 +11,7 @@ from app.llm import generate_answer
 
 st.set_page_config(
     page_title="ClauseIQ",
-    page_icon="📄",
+    page_icon="⚖️",
     layout="wide"
 )
 
@@ -95,7 +95,7 @@ if uploaded_file:
 _, center, _ = st.columns([1, 2, 1])
 
 with center:
-    st.markdown("## 📜 ClauseIQ — Compliance Document Intelligence")
+    st.markdown("## ⚖️  ClauseIQ — Compliance Document Intelligence")
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Chat history
