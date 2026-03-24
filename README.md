@@ -1,8 +1,6 @@
 # ⚖️ ClauseIQ — Compliance Document Intelligence
 
-## 🎄 Overview
-
-ClauseIQ is a RAG (Retrieval-Augmented Generation) system that lets you upload compliance and regulatory PDFs and ask questions in plain English. Built from scratch without LangChain — every layer of the pipeline is custom implemented.
+**ClauseIQ** is a RAG (Retrieval-Augmented Generation) system that lets you upload compliance and regulatory PDFs and ask questions in plain English. Built from scratch without LangChain — every layer of the pipeline is custom implemented.
 
 ---
 
@@ -18,7 +16,7 @@ The system never uses external knowledge. Every answer traces back to your uploa
 
 ## The Problem it solves
 
-Reading through financial regulations like RBI guidelines, FATF recommendations, or AML policies is slow and painful. Finding a specific clause means manually scanning hundreds of pages. ClauseIQ solves this by letting you just ask.
+ - Reading through financial regulations like RBI guidelines, FATF recommendations, or AML policies is slow and painful. Finding a specific clause means manually scanning hundreds of pages. ClauseIQ solves this by letting you just ask.
 
 ---
 
