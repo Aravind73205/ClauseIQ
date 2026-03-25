@@ -32,7 +32,7 @@ def generate_answer(query, chunks):
 
     context = "\n\n".join([
         f"[Source: {c['doc_name']}]\n{c['chunk_text']}"
-        for c in chunks
+        for c in clean_chunks
     ])
 
 

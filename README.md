@@ -104,7 +104,7 @@ GEMINI_API_KEY=your_key_here
 **4. Run the model**
 
    ```bash
-   streamlit run app/ui.py
+   streamlit run run.py
    ```
 
 ---
