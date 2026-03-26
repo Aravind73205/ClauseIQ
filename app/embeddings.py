@@ -11,7 +11,7 @@ def create_embeddings(chunks):
     """
     print("\nGenerating embeddings..\n")
 
-    #extracting only the txt content from chunk objects.
+    #extracting only the txt content from chunk objects
     texts = [chunk["chunk_text"] for chunk in chunks] 
     embeddings = model.encode(texts)
 
@@ -31,6 +31,8 @@ def build_vector_store(embeddings):
     index.add(embeddings)
 
     return index
+
+# Saving and loading vector store fn only for testing purpose(main.py).
 
 def save_vector_store(index, chunks):
     """

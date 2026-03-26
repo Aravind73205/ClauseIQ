@@ -46,11 +46,3 @@ def load_documents():
 
 
     return documents
-
-if __name__ == "__main__":
-   
-    print("\nLoading pdfs from documents...\n")
- 
-    docs = load_documents()
-
-    print("\nTotal documents loaded:", len(docs))
